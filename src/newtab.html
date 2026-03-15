@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DesignMind</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top bar: greeting + time -->
+  <header class="top-bar">
+    <span id="greeting"></span>
+    <span id="clock"></span>
+  </header>
+
+  <!-- Main content area -->
+  <main class="main">
+    <!-- Title -->
+    <h1 class="brand">DesignMind</h1>
+
+    <!-- Search bar -->
+    <div class="search-wrapper">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input id="searchInput" type="text" placeholder="Search Google or type a URL" autocomplete="off" autofocus />
+    </div>
+
+    <!-- Quote section -->
+    <div class="quote-section">
+      <p id="quote">Loading quote...</p>
+      <span id="author"></span>
+      <div class="quote-actions">
+        <button id="copyBtn" title="Copy quote">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy</span>
+        </button>
+        <button id="newBtn" title="Random quote">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          <span>Shuffle</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom tip bar -->
+  <footer class="tip-bar">
+    <span class="tip-label">💡 Tip</span>
+    <span id="tip">Loading tip...</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
