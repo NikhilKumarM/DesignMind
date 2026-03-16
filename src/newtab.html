@@ -10,15 +10,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Top bar: greeting + time -->
+  <!-- Top bar -->
   <header class="top-bar">
     <span id="greeting"></span>
-    <span id="clock"></span>
+    <div class="top-right">
+      <div class="streak" id="streakBadge" title="Daily streak">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 3-2 6-2 6s3-1 4 2c1 3-2 6-2 6s3-1 3 3c0 2.5-2.5 5-5 5s-5-2.5-5-5c0-4 3-3 3-3s-3-3-2-6c.7-2 4-2 4-2s-3-3-2-6z"/></svg>
+        <span id="streakCount">0</span>
+        <span class="streak-label">day streak</span>
+      </div>
+      <span id="clock"></span>
+    </div>
   </header>
 
-  <!-- Main content area -->
+  <!-- Main content -->
   <main class="main">
-    <!-- Title -->
     <h1 class="brand">DesignMind</h1>
 
     <!-- Search bar -->
@@ -44,6 +50,17 @@
           <span>Shuffle</span>
         </button>
       </div>
+    </div>
+
+    <!-- Daily Challenge Card -->
+    <div class="challenge-card" id="challengeCard">
+      <div class="challenge-header">
+        <span class="challenge-badge">🎯 Daily Challenge</span>
+      </div>
+      <h3 class="challenge-title" id="challengeTitle"></h3>
+      <p class="challenge-hint" id="challengeHint"></p>
+      <button class="reveal-btn" id="revealBtn">Show Answer</button>
+      <div class="challenge-answer hidden" id="challengeAnswer"></div>
     </div>
   </main>
 

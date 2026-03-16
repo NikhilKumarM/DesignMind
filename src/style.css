@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -11,7 +15,8 @@ body {
   background: #0f0f0f;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: #e4e4e7;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* ─── Top bar ─── */
@@ -21,6 +26,12 @@ body {
   align-items: center;
   padding: 24px 40px;
   color: #a1a1aa;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 #greeting {
@@ -36,6 +47,44 @@ body {
   color: #d4d4d8;
 }
 
+/* ─── Streak badge ─── */
+.streak {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(251, 146, 60, 0.1);
+  border: 1px solid rgba(251, 146, 60, 0.2);
+  color: #fb923c;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.streak svg {
+  flex-shrink: 0;
+  stroke: #fb923c;
+}
+
+#streakCount {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.streak-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #c2956a;
+}
+
+.streak.milestone {
+  background: rgba(251, 146, 60, 0.18);
+  border-color: rgba(251, 146, 60, 0.4);
+  box-shadow: 0 0 12px rgba(251, 146, 60, 0.15);
+}
+
 /* ─── Main content ─── */
 .main {
   flex: 1;
@@ -43,9 +92,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 24px;
-  gap: 32px;
-  margin-top: -40px;
+  padding: 0 24px 32px;
+  gap: 28px;
 }
 
 /* ─── Brand title ─── */
@@ -58,6 +106,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   user-select: none;
+  animation: brandIn 0.8s ease both;
 }
 
 /* ─── Search bar ─── */
@@ -65,6 +114,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 584px;
+  animation: fadeIn 0.5s ease 0.1s both;
 }
 
 .search-icon {
@@ -103,7 +153,7 @@ body {
 .quote-section {
   text-align: center;
   max-width: 600px;
-  animation: fadeIn 0.6s ease;
+  animation: fadeIn 0.6s ease 0.2s both;
 }
 
 #quote {
@@ -154,12 +204,112 @@ body {
   border-color: #3f3f46;
 }
 
+.quote-actions button:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 2px;
+}
+
 .quote-actions button:active {
   transform: scale(0.97);
 }
 
 .quote-actions button svg {
   flex-shrink: 0;
+}
+
+/* ─── Challenge card ─── */
+.challenge-card {
+  width: 100%;
+  max-width: 584px;
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 16px;
+  padding: 24px 28px;
+  text-align: left;
+  animation: fadeIn 0.6s ease 0.3s both;
+}
+
+.challenge-header {
+  margin-bottom: 14px;
+}
+
+.challenge-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  font-size: 12px;
+  font-weight: 600;
+  color: #818cf8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.challenge-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fafafa;
+  margin-bottom: 8px;
+}
+
+.challenge-hint {
+  font-size: 14px;
+  color: #71717a;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.reveal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reveal-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+}
+
+.reveal-btn:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 2px;
+}
+
+.reveal-btn:active {
+  transform: translateY(0);
+}
+
+.reveal-btn.revealed {
+  background: #27272a;
+  color: #a1a1aa;
+}
+
+.challenge-answer {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #d4d4d8;
+  animation: fadeIn 0.35s ease;
+}
+
+.challenge-answer.hidden {
+  display: none;
 }
 
 /* ─── Bottom tip bar ─── */
@@ -190,10 +340,15 @@ body {
   line-height: 1.5;
 }
 
-/* ─── Animation ─── */
+/* ─── Animations ─── */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes brandIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 .quote-section.fade {
